@@ -1,0 +1,69 @@
+/* Contenedor centrado */
+.register-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #fff;
+}
+
+/* Título principal */
+.register-title {
+  font-size: 80px;
+  color: #3f5ccf;
+  margin: 0;
+}
+
+/* Caja de registro */
+.register-box {
+  border: 6px solid #3f5ccf;
+  padding: 60px 40px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Inputs */
+.register-input {
+  padding: 12px;
+  border-radius: 20px;
+  border: 4px solid #3f5ccf;
+  outline: none;
+  font-size: 16px;
+}
+
+/* Botón Register */
+.register-button-main {
+  background-color: #3f5ccf;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.register-button-main:hover {
+  background-color: #3148a5;
+}
+
+/* Botón para volver al login */
+.register-button-login {
+  background: none;
+  border: none;
+  color: #3f5ccf;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.register-button-login:hover {
+  text-decoration: underline;
+}

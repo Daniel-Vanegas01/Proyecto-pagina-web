@@ -1,0 +1,61 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  font-family: sans-serif;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+/* Menú con módulos rectangulares */
+.home-nav {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.menu-item {
+  background-color: #3f5ccf;
+  color: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+}
+
+/* Último módulo: cerrar sesión */
+.logout-item {
+  background-color: #ff4b4b;
+}
+
+.logout-item:hover {
+  background-color: #ff1f1f;
+  transform: scale(1.05);
+}
+
+/* Texto principal */
+.home-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.welcome-text {
+  font-size: 50px;
+  color: black;
+  margin: 0;
+}
+
+.user-name {
+  font-size: 80px;
+  color: #3f5ccf;
+  font-weight: bold;
+  margin: 0;
+}

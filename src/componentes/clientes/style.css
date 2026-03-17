@@ -1,0 +1,62 @@
+.clientes-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* espacio entre título y barra */
+  padding: 40px; /* espacio desde el borde superior */
+  background-color: #fff;
+}
+
+/* Título Clientes arriba a la izquierda */
+.clientes-title {
+  font-size: 100px;
+  color: #3f5ccf;
+  margin: 0;
+  margin-left: 150px; /* espacio desde el borde izquierdo */
+  text-align: left;
+}
+
+/* Contenedor de barra y botones centrado horizontalmente */
+.clientes-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra la barra y los botones */
+  gap: 20px;
+}
+
+/* Barra de búsqueda */
+.clientes-search {
+  padding: 14px;
+  width: 1500px; /* antes estaba 450px, ahora más larga */
+  height: 70px;
+  font-size: 16px;
+  border: 4px solid #3f5ccf;
+  border-radius: 20px;
+  outline: none;
+}
+
+/* Contenedor de botones */
+.clientes-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Botones de búsqueda y nuevo cliente */
+.clientes-button {
+  background-color: #3f5ccf;
+  color: white;
+  border: none;
+  padding: 12px 50px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  width: 200px;
+  height: 60px;
+}
+
+.clientes-button:hover {
+  background-color: #3148a5;
+}
