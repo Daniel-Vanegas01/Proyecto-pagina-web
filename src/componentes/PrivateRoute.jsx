@@ -4,22 +4,22 @@ import { Navigate } from "react-router-dom";
 
 export default function PrivateRoute({ children }) {
   const [loading, setLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) {
-        setIsAuthenticated(true);
-      } else {
-        setIsAuthenticated(false);
-      }
-      setLoading(false);
-    });
-  }, []);
+      useEffect(() => {
+          supabase.auth.getSession().then(({ data }) => {
+                if (data.session) {
+                        setIsAuthenticated(true);
+                              } else {
+                                      setIsAuthenticated(false);
+                                            }
+                                                  setLoading(false);
+                                                      });
+                                                        }, []);
 
-  if (loading) {
-    return <div>Loading...</div>; // o un spinner
-  }
+                                                          if (loading) {
+                                                              return <div>Loading...</div>; // o un spinner
+                                                                }
 
-  return isAuthenticated ? children : <Navigate to="/" replace />;
-}
+                                                                  return isAuthenticated ? children : <Navigate to="/" replace />;
+                                                                  }
