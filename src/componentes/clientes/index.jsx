@@ -33,8 +33,18 @@ function Clientes() {
     navigate(`/cliente/${clienteId}`);
   };
 
+  const handleBack = () => {
+    navigate("/home");
+  };
+
   return (
     <div className="clientes-container">
+
+      {/* 🔥 BOTÓN REGRESAR */}
+      <button className="clientes-button" onClick={handleBack}>
+        Regresar
+      </button>
+
       <h1 className="clientes-title">Clientes</h1>
 
       <div className="clientes-inner">
@@ -45,6 +55,7 @@ function Clientes() {
           onChange={(e) => setSearch(e.target.value)}
           className="clientes-search"
         />
+
         <div className="clientes-buttons">
           <button className="clientes-button" onClick={handleSearch}>
             Buscar

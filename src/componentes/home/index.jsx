@@ -15,15 +15,39 @@ function Home() {
   return (
     <div className="home-container">
       <nav className="home-nav">
-        <div className="menu-item" onClick={() => navigate("/clientes")}>
+
+        {/* Clientes */}
+        <div 
+          className="menu-item" 
+          onClick={() => navigate("/clientes")}
+        >
           Clientes
         </div>
-        <div className="menu-item"></div>
-        <div className="menu-item"></div>
-        <div className="menu-item"></div>
-        <div className="menu-item logout-item" onClick={handleLogout}>
+
+        {/* Negocios */}
+        <div 
+          className="menu-item" 
+          onClick={() => navigate("/negocios")}
+        >
+          Negocios
+        </div>
+
+        {/* Liquidaciones */}
+        <div 
+          className="menu-item" 
+          onClick={() => navigate("/liquidaciones")}
+        >
+          Liquidaciones
+        </div>
+
+        {/* Cerrar sesión */}
+        <div 
+          className="menu-item logout-item" 
+          onClick={handleLogout}
+        >
           Cerrar Sesión
         </div>
+
       </nav>
 
       <main className="home-main">

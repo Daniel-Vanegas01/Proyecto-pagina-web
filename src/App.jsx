@@ -10,18 +10,26 @@ import EditarCliente from "./componentes/editarcliente";
 import NuevoNegocio from "./componentes/nuevonegocio";
 import VerNegocio from "./componentes/vernegocio";
 
+// 🔥 NUEVOS MÓDULOS
+import Modulonegocio from "./componentes/modulonegocio";
+import Moduloliquidacion from "./componentes/moduloliquidacion";
+
+// 🔥 LIQUIDACIÓN (pantalla principal)
+import Liquidacion from "./componentes/liquidacion/Liquidacion";
+
 import PrivateRoute from "./componentes/PrivateRoute";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <Routes>
 
         {/* 🔓 Rutas públicas */}
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* 🔒 Rutas protegidas */}
+        {/* 🔒 Rutas privadas */}
+
         <Route
           path="/home"
           element={
@@ -31,6 +39,7 @@ function App() {
           }
         />
 
+        {/* CLIENTES */}
         <Route
           path="/clientes"
           element={
@@ -49,7 +58,6 @@ function App() {
           }
         />
 
-        {/* 👁️ Ver cliente */}
         <Route
           path="/cliente/:id"
           element={
@@ -59,7 +67,6 @@ function App() {
           }
         />
 
-        {/* ✏️ Editar cliente 🔥 */}
         <Route
           path="/editar-cliente/:id"
           element={
@@ -69,7 +76,16 @@ function App() {
           }
         />
 
-        {/* ➕ Crear negocio */}
+        {/* NEGOCIOS */}
+        <Route
+          path="/negocios"
+          element={
+            <PrivateRoute>
+              <Modulonegocio />
+            </PrivateRoute>
+          }
+        />
+
         <Route
           path="/nuevo-negocio/:clienteId"
           element={
@@ -87,6 +103,28 @@ function App() {
             </PrivateRoute>
           }
         />
+
+        {/* LIQUIDACIONES */}
+        <Route
+          path="/liquidaciones"
+          element={
+            <PrivateRoute>
+              <Moduloliquidacion />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/liquidacion/:negocioId"
+          element={
+            <PrivateRoute>
+              <Liquidacion />
+            </PrivateRoute>
+          }
+        />
+
+        {/* 🔥 fallback */}
+        <Route path="*" element={<Login />} />
 
       </Routes>
     </BrowserRouter>

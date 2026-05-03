@@ -1,0 +1,72 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+/* 🔵 TABS */
+.tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background: #2d6cdf;
+  color: white;
+}
+
+/* 🟢 HOJA */
+.sheet {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* 🧾 FORM */
+.form {
+  display: grid;
+  gap: 8px;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.form input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 📊 TABLA EXCEL */
+.tabla-preview {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.tabla-preview th,
+.tabla-preview td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.tabla-preview th {
+  background: #f3f3f3;
+}
+
+/* 📌 PREVIEW */
+.preview {
+  margin-top: 20px;
+}
