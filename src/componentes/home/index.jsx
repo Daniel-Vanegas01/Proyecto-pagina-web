@@ -4,7 +4,6 @@ import "./style.css";
 function Home() {
   const navigate = useNavigate();
 
-  // Obtener username desde localStorage
   const username = localStorage.getItem("username") || "Usuario";
 
   const handleLogout = () => {
@@ -38,6 +37,14 @@ function Home() {
           onClick={() => navigate("/liquidaciones")}
         >
           Liquidaciones
+        </div>
+
+        {/* 🔥 Intereses (NUEVO MÓDULO) */}
+        <div 
+          className="menu-item" 
+          onClick={() => navigate("/intereses")}
+        >
+          Intereses
         </div>
 
         {/* Cerrar sesión */}

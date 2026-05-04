@@ -8,6 +8,7 @@ function Moduloliquidacion() {
   const [negocio, setNegocio] = useState(null);
   const navigate = useNavigate();
 
+  // 🔍 BUSCAR NEGOCIO POR CONSECUTIVO
   const handleBuscar = async () => {
     if (!consecutivo.trim()) {
       return alert("Ingresa un consecutivo");
@@ -15,11 +16,12 @@ function Moduloliquidacion() {
 
     const { data, error } = await supabase
       .from("negocios")
-      .select("id, consecutivo, deudor_nombre, deudor_nit")
-      .eq("consecutivo", consecutivo)
+      .select("*")
+      .eq("consecutivo", Number(consecutivo))
       .single();
 
     if (error || !data) {
+      console.error(error);
       setNegocio(null);
       return alert("Negocio no encontrado");
     }
@@ -27,13 +29,25 @@ function Moduloliquidacion() {
     setNegocio(data);
   };
 
-  const handleCrearLiquidacion = () => {
+  // 📄 IR A FACTURAS
+  const handleFacturas = () => {
     if (!negocio) return;
-
-    // 🔥 IMPORTANTE: puedes crear varias, no se limita nada
-    navigate(`/liquidacion/${negocio.id}`);
+    navigate(`/facturas/${negocio.id}`);
   };
 
+  // 💰 GENERAR LIQUIDACIÓN (TABLA RESUMEN FINAL)
+  const handleLiquidacion = () => {
+    if (!negocio) return;
+    navigate(`/generar-liquidacion/${negocio.id}`);
+  };
+
+  // 📄🧾 DOCUMENTO FINAL (TABLA PARA ABOGADO / ENVÍO)
+  const handleDocumento = () => {
+    if (!negocio) return;
+    navigate(`/documento-liquidacion/${negocio.id}`);
+  };
+
+  // 🔙 VOLVER
   const handleBack = () => {
     navigate("/home");
   };
@@ -45,7 +59,7 @@ function Moduloliquidacion() {
         Regresar
       </button>
 
-      <h1 className="clientes-title">Liquidaciones</h1>
+      <h1 className="clientes-title">Módulo de Liquidación</h1>
 
       <div className="clientes-inner">
 
@@ -63,22 +77,42 @@ function Moduloliquidacion() {
           </button>
         </div>
 
-        {/* 🔥 RESULTADO DE BUSQUEDA */}
+        {/* RESULTADO */}
         {negocio && (
           <div className="resultado-negocio">
 
             <h3>Negocio encontrado</h3>
 
             <p><strong>Consecutivo:</strong> {negocio.consecutivo}</p>
-            <p><strong>Nombre:</strong> {negocio.deudor_nombre}</p>
+            <p><strong>Deudor:</strong> {negocio.deudor_nombre}</p>
             <p><strong>NIT:</strong> {negocio.deudor_nit}</p>
+            <p><strong>Capital:</strong> {negocio.capital}</p>
 
-            <button
-              className="clientes-button"
-              onClick={handleCrearLiquidacion}
-            >
-              + Crear liquidación
-            </button>
+            <div className="clientes-buttons" style={{ marginTop: "15px" }}>
+
+              <button
+                className="clientes-button"
+                onClick={handleFacturas}
+              >
+                📄 Gestionar facturas
+              </button>
+
+              <button
+                className="clientes-button"
+                onClick={handleLiquidacion}
+              >
+                💰 Generar liquidación
+              </button>
+
+              {/* 🔥 NUEVO BOTÓN */}
+              <button
+                className="clientes-button"
+                onClick={handleDocumento}
+              >
+                📑 Documento liquidación
+              </button>
+
+            </div>
 
           </div>
         )}

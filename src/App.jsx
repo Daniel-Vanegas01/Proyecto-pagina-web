@@ -3,19 +3,39 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./componentes/login";
 import Register from "./componentes/register";
 import Home from "./componentes/home";
+
 import Clientes from "./componentes/clientes";
 import NuevoCliente from "./componentes/nuevocliente";
 import VerCliente from "./componentes/vercliente";
 import EditarCliente from "./componentes/editarcliente";
+
 import NuevoNegocio from "./componentes/nuevonegocio";
 import VerNegocio from "./componentes/vernegocio";
 
-// 🔥 NUEVOS MÓDULOS
+// =========================
+// MÓDULOS PRINCIPALES
+// =========================
 import Modulonegocio from "./componentes/modulonegocio";
 import Moduloliquidacion from "./componentes/moduloliquidacion";
 
-// 🔥 LIQUIDACIÓN (pantalla principal)
-import Liquidacion from "./componentes/liquidacion/Liquidacion";
+// =========================
+// FACTURAS
+// =========================
+import CrearFactura from "./componentes/crearfactura/CrearFactura";
+
+// =========================
+// LIQUIDACIONES
+// =========================
+import CrearLiquidacion from "./componentes/crearliquidacion/CrearLiquidacion";
+import GenerarLiquidacion from "./componentes/generarliquidacion/GenerarLiquidacion";
+
+// 🔥 NUEVO MÓDULO DOCUMENTO FINAL
+import GenerarDocumentoLiquidacion from "./componentes/documentoliquidacion/GenerarDocumentoLiquidacion";
+
+// =========================
+// OTROS
+// =========================
+import Intereses from "./componentes/intereses";
 
 import PrivateRoute from "./componentes/PrivateRoute";
 
@@ -24,12 +44,11 @@ function App() {
     <BrowserRouter basename="/">
       <Routes>
 
-        {/* 🔓 Rutas públicas */}
+        {/* 🔓 PÚBLICAS */}
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* 🔒 Rutas privadas */}
-
+        {/* 🔒 HOME */}
         <Route
           path="/home"
           element={
@@ -104,6 +123,16 @@ function App() {
           }
         />
 
+        {/* FACTURAS */}
+        <Route
+          path="/facturas/:negocioId"
+          element={
+            <PrivateRoute>
+              <CrearFactura />
+            </PrivateRoute>
+          }
+        />
+
         {/* LIQUIDACIONES */}
         <Route
           path="/liquidaciones"
@@ -115,15 +144,44 @@ function App() {
         />
 
         <Route
-          path="/liquidacion/:negocioId"
+          path="/crear-liquidacion/:negocioId"
           element={
             <PrivateRoute>
-              <Liquidacion />
+              <CrearLiquidacion />
             </PrivateRoute>
           }
         />
 
-        {/* 🔥 fallback */}
+        <Route
+          path="/generar-liquidacion/:negocioId"
+          element={
+            <PrivateRoute>
+              <GenerarLiquidacion />
+            </PrivateRoute>
+          }
+        />
+
+        {/* 🔥 DOCUMENTO FINAL (NUEVO) */}
+        <Route
+          path="/documento-liquidacion/:negocioId"
+          element={
+            <PrivateRoute>
+              <GenerarDocumentoLiquidacion />
+            </PrivateRoute>
+          }
+        />
+
+        {/* INTERESES */}
+        <Route
+          path="/intereses"
+          element={
+            <PrivateRoute>
+              <Intereses />
+            </PrivateRoute>
+          }
+        />
+
+        {/* FALLBACK */}
         <Route path="*" element={<Login />} />
 
       </Routes>
