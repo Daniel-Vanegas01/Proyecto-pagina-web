@@ -84,7 +84,7 @@ function Intereses() {
       .select();
 
     if (error) {
-      console.error("❌ ERROR:", error);
+      console.error("ERROR:", error);
       alert(error.message);
       return;
     }
@@ -113,7 +113,7 @@ function Intereses() {
           cursor: "pointer"
         }}
       >
-        ← Volver al Home
+        Regresar
       </button>
 
       <h2>Intereses IBC</h2>

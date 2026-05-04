@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../../supabase/client";
+
+import "./style.css";
+
+
 import {
   calcularLiquidacionFactura,
   calcularDocumentoLiquidacion
 } from "../generarliquidacion/utils/liquidacion";
 
-// 🔥 EXPORTS
+// EXPORTS
 import html2pdf from "html2pdf.js";
 import { Document, Packer, Paragraph, Table, TableRow, TableCell } from "docx";
 import { saveAs } from "file-saver";
@@ -74,7 +78,7 @@ function GenerarDocumentoLiquidacion() {
   };
 
   // ======================
-  // 📄 PDF PROFESIONAL
+  // PDF PROFESIONAL
   // ======================
   const descargarPDF = () => {
     const element = document.getElementById("tabla-liquidacion");
@@ -91,7 +95,7 @@ function GenerarDocumentoLiquidacion() {
   };
 
   // ======================
-  // 📝 WORD PROFESIONAL
+  // WORD PROFESIONAL
   // ======================
   const descargarWord = async () => {
     const filas = documento.filas;
@@ -187,78 +191,82 @@ function GenerarDocumentoLiquidacion() {
 
   const volver = () => navigate(-1);
 
-  return (
-    <div style={{ padding: "20px" }}>
+    return (
+    <div className="doc-container">
+      <div className="doc-card">
 
-      <button onClick={volver}>⬅ Regresar</button>
-
-      <h2>Documento de Liquidación</h2>
-
-      <p><b>Consecutivo:</b> {negocio.consecutivo}</p>
-      <p><b>Nombre:</b> {negocio.deudor_nombre}</p>
-      <p><b>NIT:</b> {negocio.deudor_nit}</p>
-
-      {/* BOTONES EXPORT */}
-      <div style={{ margin: "15px 0" }}>
-        <button onClick={descargarPDF}>📄 Descargar PDF</button>
-        <button onClick={descargarWord} style={{ marginLeft: "10px" }}>
-          📝 Descargar Word
+        <button className="back-button" onClick={volver}>
+          Regresar
         </button>
-      </div>
 
-      {/* TABLA */}
-      <div id="tabla-liquidacion">
-        <table border="1" width="100%">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Factura</th>
-              <th>Saldo</th>
-              <th>Fecha Vto</th>
-              <th>Días Mora</th>
-              <th>Total Interés</th>
-            </tr>
-          </thead>
+        <div className="doc-header">
+          <h2>Documento de Liquidación</h2>
 
-          <tbody>
-            {documento.filas.map((f) => (
-              <tr key={f.factura}>
-                <td>{f.numero}</td>
-                <td>{f.factura}</td>
-                <td>{f.saldo.toLocaleString()}</td>
-                <td>{f.fecha_vencimiento}</td>
-                <td>{f.dias_mora}</td>
-                <td>{f.total_interes.toLocaleString()}</td>
+          <div className="doc-buttons">
+            <button onClick={descargarPDF}>Descargar PDF</button>
+            <button onClick={descargarWord}>Descargar Word</button>
+          </div>
+        </div>
+
+        <div className="doc-info">
+          <p><b>Consecutivo:</b> {negocio.consecutivo}</p>
+          <p><b>Nombre:</b> {negocio.deudor_nombre}</p>
+          <p><b>NIT:</b> {negocio.deudor_nit}</p>
+        </div>
+
+        <div id="tabla-liquidacion" className="table-container">
+          <table className="table-liquidacion">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Factura</th>
+                <th>Saldo</th>
+                <th>Fecha Vto</th>
+                <th>Días Mora</th>
+                <th>Total Interés</th>
               </tr>
-            ))}
+            </thead>
 
-            <tr>
-              <td></td>
-              <td><b>TOTALES</b></td>
-              <td><b>{documento.totalSaldos.toLocaleString()}</b></td>
-              <td></td>
-              <td></td>
-              <td><b>{documento.totalIntereses.toLocaleString()}</b></td>
-            </tr>
+            <tbody>
+              {documento.filas.map((f) => (
+                <tr key={f.factura}>
+                  <td>{f.numero}</td>
+                  <td>{f.factura}</td>
+                  <td>{f.saldo.toLocaleString()}</td>
+                  <td>{f.fecha_vencimiento}</td>
+                  <td>{f.dias_mora}</td>
+                  <td>{f.total_interes.toLocaleString()}</td>
+                </tr>
+              ))}
 
-            <tr>
-              <td colSpan="5"><b>SUBTOTAL</b></td>
-              <td><b>{documento.subtotal.toLocaleString()}</b></td>
-            </tr>
+              <tr className="total-row">
+                <td></td>
+                <td><b>TOTALES</b></td>
+                <td><b>{documento.totalSaldos.toLocaleString()}</b></td>
+                <td></td>
+                <td></td>
+                <td><b>{documento.totalIntereses.toLocaleString()}</b></td>
+              </tr>
 
-            <tr>
-              <td colSpan="5"><b>HONORARIOS (10%)</b></td>
-              <td><b>{documento.honorarios.toLocaleString()}</b></td>
-            </tr>
+              <tr className="subtotal-row">
+                <td colSpan="5"><b>SUBTOTAL</b></td>
+                <td><b>{documento.subtotal.toLocaleString()}</b></td>
+              </tr>
 
-            <tr>
-              <td colSpan="5"><b>TOTAL DEUDA</b></td>
-              <td><b>{documento.totalFinal.toLocaleString()}</b></td>
-            </tr>
-          </tbody>
-        </table>
+              <tr className="subtotal-row">
+                <td colSpan="5"><b>HONORARIOS (10%)</b></td>
+                <td><b>{documento.honorarios.toLocaleString()}</b></td>
+              </tr>
+
+              <tr className="final-row">
+                <td colSpan="5"><b>TOTAL DEUDA</b></td>
+                <td><b>{documento.totalFinal.toLocaleString()}</b></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
-
     </div>
   );
 }

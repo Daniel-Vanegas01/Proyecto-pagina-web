@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../../supabase/client";
 
+import "./style.css";
+
+
 function CrearFactura() {
   const { negocioId } = useParams();
   const navigate = useNavigate();
@@ -127,23 +130,29 @@ function CrearFactura() {
   if (!negocio) return <div>Negocio no encontrado</div>;
 
   return (
-    <div>
+  <div className="crear-factura-container">
 
-      <button onClick={() => navigate(-1)}>Regresar</button>
+    <div className="crear-factura-card">
 
-      <h2>Facturas del negocio</h2>
+      <div className="crear-header">
+        <h2>Facturas del negocio</h2>
+        <button className="back-button" onClick={() => navigate(-1)}>
+          Regresar
+        </button>
+      </div>
 
-      <p><b>Consecutivo:</b> {negocio.consecutivo}</p>
-      <p><b>Deudor:</b> {negocio.deudor_nombre}</p>
+      <div className="crear-info">
+        <p><b>Consecutivo:</b> {negocio.consecutivo}</p>
+        <p><b>Deudor:</b> {negocio.deudor_nombre}</p>
+      </div>
 
-      <hr />
-
-      {/* BOTÓN FORMULARIO */}
-      <button onClick={() => setMostrarFormulario(true)}>
-        + Crear factura
+      {/* BOTÓN CREAR */}
+      <button
+        className="main-button"
+        onClick={() => setMostrarFormulario(true)}
+      >
+        Crear factura
       </button>
-
-      <hr />
 
       {/* ================= FORMULARIO ================= */}
       {mostrarFormulario && (
@@ -151,7 +160,7 @@ function CrearFactura() {
 
           <h3>Nueva Factura</h3>
 
-          <table border="1" width="100%">
+          <table className="factura-table">
             <thead>
               <tr>
                 <th>#</th>
@@ -228,19 +237,21 @@ function CrearFactura() {
             </tbody>
           </table>
 
-          <button onClick={agregarFactura} style={{ marginTop: "10px" }}>
+          <button
+            className="main-button"
+            onClick={agregarFactura}
+            style={{ marginTop: "10px" }}
+          >
             Guardar factura
           </button>
 
         </div>
       )}
 
-      <hr />
+      {/* ================= FACTURAS ================= */}
+      <h3 style={{ marginTop: "20px" }}>Facturas creadas</h3>
 
-      {/* ================= SELECTOR ================= */}
-      <h3>Facturas creadas</h3>
-
-      <div style={{ display: "flex", gap: "10px" }}>
+      <div className="factura-selector">
         {facturas.map((f, i) => (
           <button key={f.id} onClick={() => setFacturaActiva(f)}>
             {i + 1}
@@ -248,11 +259,9 @@ function CrearFactura() {
         ))}
       </div>
 
-      <hr />
-
       {/* ================= DETALLE ================= */}
       {facturaActiva && (
-        <div>
+        <div className="factura-detalle">
           <h3>Factura {facturaActiva.numero}</h3>
 
           <p><b>Factura:</b> {facturaActiva.factura}</p>
@@ -264,7 +273,8 @@ function CrearFactura() {
       )}
 
     </div>
-  );
+  </div>
+);
 }
 
 export default CrearFactura;

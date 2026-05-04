@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../../supabase/client";
 import { calcularLiquidacionFactura } from "./utils/liquidacion";
+import "./style.css";
 
 function GenerarLiquidacion() {
   const { negocioId } = useParams();
@@ -167,20 +168,25 @@ function GenerarLiquidacion() {
 
   if (!negocio) return <div>Cargando...</div>;
 
-  return (
-    <div style={{ padding: "20px" }}>
+return (
+  <div className="generar-liquidacion-container">
 
-      <button onClick={volver}>⬅ Regresar</button>
+    <div className="generar-liquidacion-card">
 
-      <h2>Generar Liquidación</h2>
+      <div className="generar-header">
+        <h2>Generar Liquidación</h2>
+        <button className="back-button" onClick={volver}>
+          Regresar
+        </button>
+      </div>
 
-      <div style={{ marginBottom: "20px" }}>
+      <div className="generar-info">
         <p><b>Consecutivo:</b> {negocio.consecutivo}</p>
         <p><b>Nombre:</b> {negocio.deudor_nombre}</p>
         <p><b>NIT:</b> {negocio.deudor_nit}</p>
       </div>
 
-      <table border="1" width="100%">
+      <table className="generar-table">
         <thead>
           <tr>
             <th>Factura</th>
@@ -217,17 +223,17 @@ function GenerarLiquidacion() {
         </tbody>
       </table>
 
-      {/* BOTÓN GUARDAR */}
       <button
+        className="generar-button"
         onClick={guardarLiquidacion}
         disabled={guardando}
-        style={{ marginTop: "20px" }}
       >
         {guardando ? "Guardando..." : "Guardar Liquidación"}
       </button>
 
     </div>
-  );
+  </div>
+);
 }
 
 export default GenerarLiquidacion;

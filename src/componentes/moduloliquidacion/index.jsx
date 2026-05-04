@@ -8,7 +8,7 @@ function Moduloliquidacion() {
   const [negocio, setNegocio] = useState(null);
   const navigate = useNavigate();
 
-  // 🔍 BUSCAR NEGOCIO POR CONSECUTIVO
+  // BUSCAR NEGOCIO POR CONSECUTIVO
   const handleBuscar = async () => {
     if (!consecutivo.trim()) {
       return alert("Ingresa un consecutivo");
@@ -29,25 +29,25 @@ function Moduloliquidacion() {
     setNegocio(data);
   };
 
-  // 📄 IR A FACTURAS
+  // IR A FACTURAS
   const handleFacturas = () => {
     if (!negocio) return;
     navigate(`/facturas/${negocio.id}`);
   };
 
-  // 💰 GENERAR LIQUIDACIÓN (TABLA RESUMEN FINAL)
+  // GENERAR LIQUIDACIÓN (TABLA RESUMEN FINAL)
   const handleLiquidacion = () => {
     if (!negocio) return;
     navigate(`/generar-liquidacion/${negocio.id}`);
   };
 
-  // 📄🧾 DOCUMENTO FINAL (TABLA PARA ABOGADO / ENVÍO)
+  // DOCUMENTO FINAL (TABLA PARA ABOGADO / ENVÍO)
   const handleDocumento = () => {
     if (!negocio) return;
     navigate(`/documento-liquidacion/${negocio.id}`);
   };
 
-  // 🔙 VOLVER
+  // VOLVER
   const handleBack = () => {
     navigate("/home");
   };
@@ -94,22 +94,21 @@ function Moduloliquidacion() {
                 className="clientes-button"
                 onClick={handleFacturas}
               >
-                📄 Gestionar facturas
+                Gestionar facturas
               </button>
 
               <button
                 className="clientes-button"
                 onClick={handleLiquidacion}
               >
-                💰 Generar liquidación
+                Generar liquidación
               </button>
 
-              {/* 🔥 NUEVO BOTÓN */}
               <button
                 className="clientes-button"
                 onClick={handleDocumento}
               >
-                📑 Documento liquidación
+                Documento liquidación
               </button>
 
             </div>

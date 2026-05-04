@@ -226,7 +226,7 @@ function VerCliente() {
               <h3>Negocios</h3>
 
               <button className="main-button" onClick={handleNewNegocio}>
-                + Nuevo Negocio
+                Nuevo Negocio
               </button>
 
               {negocios.length === 0 ? (
