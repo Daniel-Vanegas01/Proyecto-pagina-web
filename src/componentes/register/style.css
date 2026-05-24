@@ -1,69 +1,193 @@
-/* Contenedor centrado */
+/* =========================
+   FONDO GENERAL
+========================= */
 .register-container {
-  height: 100vh;
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  background-color: #fff;
+
+  gap: 35px;
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff 0%,
+      #dbe4ff 50%,
+      #f8f9ff 100%
+    );
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Título principal */
+/* =========================
+   TITULO
+========================= */
 .register-title {
-  font-size: 80px;
-  color: #3f5ccf;
+  font-size: 75px;
+  font-weight: 800;
+
+  color: #2f4fc7;
+
   margin: 0;
+
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 4px 15px rgba(63, 92, 207, 0.2);
 }
 
-/* Caja de registro */
+/* =========================
+   CAJA REGISTER
+========================= */
 .register-box {
-  border: 6px solid #3f5ccf;
-  padding: 60px 40px;
-  width: 320px;
+  width: 380px;
+
   display: flex;
   flex-direction: column;
+
   gap: 20px;
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+  padding: 45px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border-radius: 28px;
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 10px 40px rgba(63, 92, 207, 0.15),
+    0 4px 12px rgba(0,0,0,0.08);
+
+  transition: 0.3s ease;
 }
 
-/* Inputs */
+.register-box:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 45px rgba(63, 92, 207, 0.22),
+    0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   INPUTS
+========================= */
 .register-input {
-  padding: 12px;
-  border-radius: 20px;
-  border: 4px solid #3f5ccf;
+  padding: 15px 18px;
+
+  border-radius: 16px;
+
+  border: 2px solid #d6ddff;
+
   outline: none;
-  font-size: 16px;
+
+  font-size: 15px;
+
+  background: #ffffff;
+
+  transition: all 0.25s ease;
 }
 
-/* Botón Register */
+.register-input:focus {
+  border-color: #3f5ccf;
+
+  box-shadow:
+    0 0 0 4px rgba(63, 92, 207, 0.15);
+
+  transform: scale(1.01);
+}
+
+/* =========================
+   BOTON REGISTER
+========================= */
 .register-button-main {
-  background-color: #3f5ccf;
+  background: linear-gradient(
+    135deg,
+    #3f5ccf,
+    #5875e8
+  );
+
   color: white;
+
   border: none;
-  padding: 12px;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
+
+  padding: 15px;
+
+  border-radius: 16px;
+
+  font-weight: 700;
+
   font-size: 16px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 8px 20px rgba(63, 92, 207, 0.25);
 }
 
 .register-button-main:hover {
-  background-color: #3148a5;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(63, 92, 207, 0.35);
+
+  background: linear-gradient(
+    135deg,
+    #3650b8,
+    #4e6fe4
+  );
 }
 
-/* Botón para volver al login */
+/* =========================
+   BOTON LOGIN
+========================= */
 .register-button-login {
-  background: none;
+  background: transparent;
+
   border: none;
+
   color: #3f5ccf;
-  font-weight: bold;
+
+  font-weight: 700;
+
   cursor: pointer;
-  margin-top: 10px;
+
+  margin-top: 5px;
+
   font-size: 14px;
+
+  transition: 0.2s ease;
 }
 
 .register-button-login:hover {
+  color: #2742b1;
+
   text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 500px) {
+
+  .register-title {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .register-box {
+    width: 100%;
+    padding: 35px 25px;
+  }
+
 }

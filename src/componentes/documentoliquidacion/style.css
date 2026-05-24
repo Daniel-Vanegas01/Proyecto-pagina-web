@@ -1,129 +1,332 @@
-/* CONTENEDOR PRINCIPAL */
+/* ========================================
+   CONTENEDOR PRINCIPAL
+======================================== */
 .doc-container {
-  display: flex;
-  justify-content: center;
-  padding: 40px;
-  background-color: #f5f5f5;
   min-height: 100vh;
+
+  padding: 40px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff 0%,
+      #dbe4ff 50%,
+      #f8f9ff 100%
+    );
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* TARJETA */
+/* ========================================
+   CARD PRINCIPAL
+======================================== */
 .doc-card {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  width: 1000px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  max-width: 1700px;
+
+  margin: 0 auto;
+
+  background: rgba(255,255,255,0.78);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.45);
+
+  border-radius: 32px;
+
+  padding: 40px;
+
+  box-shadow:
+    0 20px 50px rgba(63,92,207,0.15);
 }
 
-/* HEADER */
-.doc-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.doc-header h2 {
-  color: #3f5ccf;
-}
-
-.doc-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.doc-buttons button {
-  background: #3f5ccf;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.doc-buttons button:hover {
-  background: #2f47a5;
-}
-
-/* BOTÓN VOLVER */
+/* ========================================
+   BOTÓN REGRESAR
+======================================== */
 .back-button {
-  background: transparent;
-  border: 2px solid #3f5ccf;
-  color: #3f5ccf;
-  padding: 5px 12px;
-  border-radius: 10px;
+  border: none;
+
   cursor: pointer;
-  font-weight: bold;
-  margin-bottom: 15px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: white;
+
+  padding: 14px 22px;
+
+  border-radius: 16px;
+
+  margin-bottom: 30px;
+
+  transition: all 0.25s ease;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e63946,
+      #ff5c66
+    );
+
+  box-shadow:
+    0 10px 25px rgba(230,57,70,0.25);
 }
 
 .back-button:hover {
-  background: #3f5ccf;
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 16px 35px rgba(230,57,70,0.35);
+}
+
+/* ========================================
+   HEADER
+======================================== */
+.doc-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  margin-bottom: 35px;
+}
+
+.doc-header h2 {
+  margin: 0;
+
+  font-size: 42px;
+
+  font-weight: 800;
+
+  color: #2f4fc7;
+}
+
+/* ========================================
+   BOTONES EXPORTAR
+======================================== */
+.doc-buttons {
+  display: flex;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+.doc-buttons button {
+  border: none;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
   color: white;
+
+  padding: 14px 22px;
+
+  border-radius: 16px;
+
+  transition: all 0.25s ease;
+
+  background:
+    linear-gradient(
+      135deg,
+      #3f5ccf,
+      #5f7cff
+    );
+
+  box-shadow:
+    0 10px 25px rgba(63,92,207,0.25);
 }
 
-/* INFO */
+.doc-buttons button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 16px 35px rgba(63,92,207,0.35);
+}
+
+/* ========================================
+   INFORMACIÓN
+======================================== */
 .doc-info {
-  margin: 15px 0;
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 30px;
+
+  margin-bottom: 35px;
+
+  padding: 24px;
+
+  border-radius: 22px;
+
+  background: rgba(63,92,207,0.08);
+
+  border: 1px solid rgba(63,92,207,0.12);
 }
 
-/* TABLA */
+.doc-info p {
+  margin: 0;
+
+  font-size: 16px;
+
+  color: #444;
+}
+
+.doc-info b {
+  color: #2f4fc7;
+}
+
+/* ========================================
+   CONTENEDOR TABLA
+======================================== */
 .table-container {
-  margin-top: 20px;
   overflow-x: auto;
+
+  border-radius: 24px;
+
+  background: white;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
 }
 
+/* ========================================
+   TABLA
+======================================== */
 .table-liquidacion {
   width: 100%;
+
   border-collapse: collapse;
+
+  min-width: 900px;
+}
+
+/* HEADER */
+.table-liquidacion thead {
+  background:
+    linear-gradient(
+      135deg,
+      #3f5ccf,
+      #5f7cff
+    );
+
+  color: white;
 }
 
 .table-liquidacion th {
-  background-color: #3f5ccf;
-  color: white;
-  padding: 10px;
+  padding: 18px 16px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
   text-align: center;
 }
 
+/* BODY */
 .table-liquidacion td {
-  padding: 10px;
+  padding: 18px 14px;
+
   text-align: center;
-  border-bottom: 1px solid #ddd;
+
+  font-size: 14px;
+
+  color: #444;
+
+  border-bottom: 1px solid #edf0ff;
 }
 
-/* FILAS ESPECIALES */
-.table-liquidacion tr:hover {
-  background-color: #f1f1f1;
+.table-liquidacion tbody tr {
+  transition: background 0.2s ease;
 }
 
+.table-liquidacion tbody tr:hover {
+  background: rgba(63,92,207,0.04);
+}
+
+/* ========================================
+   FILAS ESPECIALES
+======================================== */
 .total-row {
-  font-weight: bold;
-  background-color: #f5f7ff;
+  background:
+    rgba(63,92,207,0.06);
 }
 
 .subtotal-row {
-  font-weight: bold;
+  background:
+    rgba(63,92,207,0.09);
 }
 
 .final-row {
-  font-weight: bold;
-  background-color: #e8ecff;
-}
+  background:
+    linear-gradient(
+      135deg,
+      #3f5ccf,
+      #5f7cff
+    );
 
-/* BOTÓN GUARDAR */
-.save-button {
-  background: #3f5ccf;
   color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 15px;
-  margin-top: 20px;
-  cursor: pointer;
-  width: 100%;
-  font-weight: bold;
 }
 
-.save-button:hover {
-  background: #2f47a5;
+.final-row td {
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 1000px) {
+
+  .doc-container {
+    padding: 20px;
+  }
+
+  .doc-card {
+    padding: 25px;
+  }
+
+  .doc-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .doc-header h2 {
+    font-size: 32px;
+  }
+
+  .doc-info {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .doc-header h2 {
+    font-size: 26px;
+  }
+
+  .doc-buttons {
+    width: 100%;
+  }
+
+  .doc-buttons button,
+  .back-button {
+    width: 100%;
+  }
+
 }

@@ -59,7 +59,7 @@ function Moduloliquidacion() {
         Regresar
       </button>
 
-      <h1 className="clientes-title">Módulo de Liquidación</h1>
+      <h1 className="clientes-title">Liquidación</h1>
 
       <div className="clientes-inner">
 

@@ -1,61 +1,288 @@
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
 .home-container {
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
-  font-family: sans-serif;
-  background-color: #fff;
   min-height: 100vh;
+
+  padding: 40px;
+
+  background:
+    radial-gradient(circle at top left, #f4f7ff 0%, transparent 30%),
+    radial-gradient(circle at bottom right, #dbe4ff 0%, transparent 35%),
+    linear-gradient(135deg, #eef2ff 0%, #f8faff 100%);
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  overflow-x: hidden;
 }
 
-/* Menú con módulos rectangulares */
-.home-nav {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.menu-item {
-  background-color: #3f5ccf;
-  color: white;
-  padding: 30px 20px;
-  border-radius: 15px;
-  font-weight: bold;
-  text-align: center;
-  flex: 1;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.menu-item:hover {
-  transform: scale(1.05);
-}
-
-/* Último módulo: cerrar sesión */
-.logout-item {
-  background-color: #ff4b4b;
-}
-
-.logout-item:hover {
-  background-color: #ff1f1f;
-  transform: scale(1.05);
-}
-
-/* Texto principal */
+/* =========================
+   MAIN
+========================= */
 .home-main {
+  min-height: calc(100vh - 80px);
+
   display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 80px;
+}
+
+/* =========================
+   LEFT
+========================= */
+.home-left {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+/* =========================
+   RIGHT
+========================= */
+.home-right {
+  flex: 1;
+}
+
+/* =========================
+   CARD
+========================= */
+.lex-card {
+  width: 420px;
+
+  padding: 45px;
+
+  border-radius: 35px;
+
+  background: rgba(255,255,255,0.5);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.6);
+
+  box-shadow:
+    0 25px 60px rgba(63, 92, 207, 0.18);
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition: 0.3s ease;
+}
+
+.lex-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  background: rgba(63, 92, 207, 0.08);
+
+  border-radius: 50%;
+
+  top: -80px;
+  right: -80px;
+}
+
+.lex-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 30px 70px rgba(63, 92, 207, 0.22);
+}
+
+/* =========================
+   LOGO
+========================= */
+.lex-logo {
+  font-size: 90px;
+
+  text-align: center;
+
+  margin-bottom: 10px;
+}
+
+/* =========================
+   TITULO
+========================= */
+.lex-title {
+  font-size: 46px;
+
+  font-weight: 800;
+
+  text-align: center;
+
+  color: #2f4fc7;
+
+  margin-bottom: 10px;
+}
+
+/* =========================
+   SLOGAN
+========================= */
+.lex-slogan {
+  text-align: center;
+
+  color: #6b7280;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+
+  margin-bottom: 35px;
+}
+
+/* =========================
+   MENU CARD
+========================= */
+.card-menu {
+  display: flex;
+
   flex-direction: column;
-  align-items: flex-start;
+
+  gap: 18px;
 }
 
+/* =========================
+   BOTONES MENU
+========================= */
+.card-menu-item {
+  background:
+    linear-gradient(
+      135deg,
+      #3f5ccf,
+      #5f7cff
+    );
+
+  color: white;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 10px 25px rgba(63, 92, 207, 0.2);
+
+  user-select: none;
+}
+
+.card-menu-item:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 35px rgba(63, 92, 207, 0.3);
+}
+
+/* =========================
+   LOGOUT
+========================= */
+.logout-item {
+  background:
+    linear-gradient(
+      135deg,
+      #e63946,
+      #ff5d6c
+    );
+}
+
+/* =========================
+   WELCOME
+========================= */
 .welcome-text {
-  font-size: 50px;
-  color: black;
-  margin: 0;
+  font-size: 32px;
+
+  color: #6b7280;
+
+  margin-bottom: 10px;
+
+  font-weight: 500;
 }
 
+/* =========================
+   USERNAME
+========================= */
 .user-name {
-  font-size: 80px;
-  color: #3f5ccf;
-  font-weight: bold;
+  font-size: 90px;
+
+  font-weight: 800;
+
+  color: #2f4fc7;
+
   margin: 0;
+
+  line-height: 1;
+
+  text-shadow:
+    0 8px 25px rgba(63, 92, 207, 0.15);
+}
+
+/* =========================
+   SUBTITLE
+========================= */
+.home-subtitle {
+  margin-top: 30px;
+
+  max-width: 500px;
+
+  font-size: 20px;
+
+  line-height: 1.8;
+
+  color: #555;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1100px) {
+
+  .home-main {
+    flex-direction: column;
+  }
+
+  .lex-card {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .home-container {
+    padding: 25px;
+  }
+
+  .user-name {
+    font-size: 55px;
+  }
+
+  .welcome-text {
+    font-size: 24px;
+  }
+
+  .home-subtitle {
+    font-size: 16px;
+  }
+
+  .lex-title {
+    font-size: 38px;
+  }
+
 }

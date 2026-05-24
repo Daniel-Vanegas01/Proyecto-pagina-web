@@ -1,62 +1,226 @@
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
 .clientes-container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 40px; /* espacio entre título y barra */
-  padding: 40px; /* espacio desde el borde superior */
-  background-color: #fff;
+  min-height: 100vh;
+
+  padding: 40px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff 0%,
+      #dbe4ff 50%,
+      #f8f9ff 100%
+    );
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Título Clientes arriba a la izquierda */
+/* =========================
+   HEADER
+========================= */
+.clientes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 40px;
+}
+
+/* =========================
+   TITULO
+========================= */
 .clientes-title {
-  font-size: 100px;
-  color: #3f5ccf;
+  font-size: 72px;
+  font-weight: 800;
+
+  color: #2f4fc7;
+
   margin: 0;
-  margin-left: 150px; /* espacio desde el borde izquierdo */
-  text-align: left;
+
+  text-shadow:
+    0 5px 15px rgba(63, 92, 207, 0.15);
 }
 
-/* Contenedor de barra y botones centrado horizontalmente */
-.clientes-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centra la barra y los botones */
-  gap: 20px;
-}
-
-/* Barra de búsqueda */
-.clientes-search {
-  padding: 14px;
-  width: 1500px; /* antes estaba 450px, ahora más larga */
-  height: 70px;
-  font-size: 16px;
-  border: 4px solid #3f5ccf;
-  border-radius: 20px;
-  outline: none;
-}
-
-/* Contenedor de botones */
-.clientes-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-/* Botones de búsqueda y nuevo cliente */
+/* =========================
+   BOTON REGRESAR
+========================= */
 .clientes-button {
-  background-color: #3f5ccf;
+  background:
+    linear-gradient(
+      135deg,
+      #3f5ccf,
+      #5875e8
+    );
+
   color: white;
+
   border: none;
-  padding: 12px 50px;
-  border-radius: 20px;
-  font-size: 16px;
+
+  padding: 14px 28px;
+
+  border-radius: 18px;
+
+  font-size: 15px;
+  font-weight: 700;
+
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-  width: 200px;
-  height: 60px;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 10px 25px rgba(63, 92, 207, 0.25);
 }
 
 .clientes-button:hover {
-  background-color: #3148a5;
+  transform: translateY(-3px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #3650b8,
+      #4f6fe4
+    );
+
+  box-shadow:
+    0 14px 30px rgba(63, 92, 207, 0.35);
+}
+
+/* =========================
+   TARJETA PRINCIPAL
+========================= */
+.clientes-inner {
+  background: rgba(255,255,255,0.75);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  border-radius: 30px;
+
+  padding: 40px;
+
+  box-shadow:
+    0 20px 45px rgba(63, 92, 207, 0.12);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+/* =========================
+   BUSCADOR
+========================= */
+.clientes-search {
+  width: 100%;
+
+  padding: 20px 25px;
+
+  border-radius: 20px;
+
+  border: 2px solid #dbe4ff;
+
+  outline: none;
+
+  font-size: 17px;
+
+  background: white;
+
+  transition: all 0.25s ease;
+
+  box-sizing: border-box;
+}
+
+.clientes-search:focus {
+  border-color: #3f5ccf;
+
+  box-shadow:
+    0 0 0 5px rgba(63, 92, 207, 0.12);
+}
+
+/* =========================
+   BOTONES
+========================= */
+.clientes-buttons {
+  display: flex;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+/* =========================
+   RESULTADO
+========================= */
+.clientes-result {
+  background: white;
+
+  border-radius: 25px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+  border-left: 8px solid #3f5ccf;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.clientes-result p {
+  margin: 0;
+
+  font-size: 17px;
+
+  color: #444;
+}
+
+.clientes-result strong {
+  color: #2f4fc7;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+
+  .clientes-title {
+    font-size: 52px;
+  }
+
+  .clientes-buttons {
+    flex-direction: column;
+  }
+
+  .clientes-button {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .clientes-container {
+    padding: 25px;
+  }
+
+  .clientes-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .clientes-title {
+    font-size: 42px;
+  }
+
+  .clientes-inner {
+    padding: 25px;
+  }
+
 }

@@ -15,7 +15,7 @@ function NuevoNegocio() {
   // Deudor
   const [deudorNombre, setDeudorNombre] = useState("");
   const [deudorNit, setDeudorNit] = useState("");
-  const [paginaWeb, setPaginaWeb] = useState(""); // 🔥 NUEVO
+  const [paginaWeb, setPaginaWeb] = useState("");
   const [telefonos, setTelefonos] = useState([""]);
   const [correos, setCorreos] = useState([""]);
   const [direcciones, setDirecciones] = useState([""]);
@@ -94,7 +94,7 @@ function NuevoNegocio() {
         fecha_ingreso: fechaIngreso,
         deudor_nombre: deudorNombre,
         deudor_nit: deudorNit,
-        pagina_web: paginaWeb, // 🔥 NUEVO
+        pagina_web: paginaWeb,
         telefonos,
         correos,
         direcciones,
@@ -144,7 +144,6 @@ function NuevoNegocio() {
               onChange={(e) => setDeudorNit(e.target.value)}
             />
 
-            {/* 🔥 NUEVO CAMPO */}
             <input
               type="text"
               placeholder="Página web (opcional)"
@@ -153,7 +152,7 @@ function NuevoNegocio() {
             />
 
             <button type="button" onClick={buscarEnGoogle} className="search-button">
-              🔎 Buscar en la web
+              Buscar en la web
             </button>
 
             <div className="web-buttons">

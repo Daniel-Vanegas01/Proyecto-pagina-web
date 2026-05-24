@@ -1,49 +1,328 @@
-/* Texto informativo (fecha y consecutivo) */
-.form-section p {
-  font-size: 16px;
-  margin: 5px 0;
-  color: #333;
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+.nuevo-cliente-container {
+  min-height: 100vh;
+
+  padding: 40px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff 0%,
+      #dbe4ff 50%,
+      #f8f9ff 100%
+    );
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-/* Textarea (detalle jurídico) */
-.nuevo-cliente-form textarea {
-  padding: 12px;
-  font-size: 16px;
-  border: 4px solid #3f5ccf;
-  border-radius: 20px;
+/* =========================
+   CARD PRINCIPAL
+========================= */
+.nuevo-cliente-card {
+  width: 100%;
+  max-width: 1200px;
+
+  background: rgba(255,255,255,0.92);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 35px;
+
+  padding: 45px;
+
+  box-shadow:
+    0 20px 50px rgba(63, 92, 207, 0.12);
+
+  border: 1px solid rgba(63, 92, 207, 0.08);
+}
+
+/* =========================
+   TITULO
+========================= */
+.nuevo-cliente-title {
+  margin-top: 0;
+
+  margin-bottom: 35px;
+
+  font-size: 52px;
+
+  font-weight: 800;
+
+  color: #2f4fc7;
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+.nuevo-cliente-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+.form-section {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.05);
+
+  border: 1px solid rgba(63, 92, 207, 0.08);
+}
+
+/* =========================
+   TITULOS
+========================= */
+.form-section h3 {
+  margin-top: 0;
+
+  margin-bottom: 20px;
+
+  color: #2f4fc7;
+
+  font-size: 24px;
+
+  font-weight: 800;
+}
+
+/* =========================
+   TEXTOS INFO
+========================= */
+.form-section p {
+  color: #444;
+
+  font-size: 15px;
+
+  margin-bottom: 10px;
+}
+
+.form-section strong {
+  color: #2f4fc7;
+}
+
+/* =========================
+   INPUTS
+========================= */
+.form-section input,
+.form-section textarea {
+  width: 100%;
+
+  padding: 15px 18px;
+
+  margin-bottom: 15px;
+
+  border-radius: 16px;
+
+  border: 2px solid #d7defc;
+
   outline: none;
-  min-height: 120px;
+
+  font-size: 15px;
+
+  transition: all 0.25s ease;
+
+  background: #fafbff;
+
+  box-sizing: border-box;
+
+  font-family: inherit;
+}
+
+.form-section textarea {
+  min-height: 150px;
+
   resize: vertical;
 }
 
-/* Botón buscar en la web */
+/* FOCUS */
+.form-section input:focus,
+.form-section textarea:focus {
+  border-color: #3f5ccf;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 4px rgba(63, 92, 207, 0.12);
+}
+
+/* =========================
+   ITEMS DINÁMICOS
+========================= */
+.field-item {
+  display: flex;
+
+  gap: 12px;
+
+  align-items: center;
+
+  margin-bottom: 12px;
+}
+
+.field-item input {
+  margin-bottom: 0;
+}
+
+/* =========================
+   BOTONES GENERALES
+========================= */
+.form-section button,
+.submit-button {
+  background:
+    linear-gradient(
+      135deg,
+      #3f5ccf,
+      #5a77ea
+    );
+
+  color: white;
+
+  border: none;
+
+  padding: 14px 22px;
+
+  border-radius: 16px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 10px 25px rgba(63, 92, 207, 0.2);
+}
+
+/* HOVER */
+.form-section button:hover,
+.submit-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 35px rgba(63, 92, 207, 0.3);
+
+  background:
+    linear-gradient(
+      135deg,
+      #3650b8,
+      #4f6fe4
+    );
+}
+
+/* =========================
+   BOTONES ELIMINAR
+========================= */
+.field-item button {
+  min-width: 45px;
+
+  height: 45px;
+
+  padding: 0;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e63946,
+      #ff5c66
+    );
+
+  box-shadow:
+    0 10px 20px rgba(230, 57, 70, 0.2);
+}
+
+.field-item button:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #cc2f3d,
+      #ff4b57
+    );
+}
+
+/* =========================
+   BOTÓN BUSCAR WEB
+========================= */
 .search-button {
-  width: fit-content;
-  background-color: #3f5ccf;
-  color: white;
-  border: none;
+  width: 100%;
+
+  margin-bottom: 20px;
+
+  font-size: 16px;
+}
+
+/* =========================
+   BOTONES WEB
+========================= */
+.web-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+}
+
+.web-buttons button {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* =========================
+   BOTÓN GUARDAR
+========================= */
+.submit-button {
+  width: 100%;
+
+  padding: 18px;
+
+  font-size: 18px;
+
   border-radius: 20px;
-  padding: 8px 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 5px;
 }
 
-.search-button:hover {
-  background-color: #3148a5;
-}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
 
-/* Mejora visual para botones pequeños (añadir campos) */
-.form-section button {
-  background-color: #3f5ccf;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  cursor: pointer;
-  font-weight: bold;
-}
+  .nuevo-cliente-container {
+    padding: 20px;
+  }
 
-.form-section button:hover {
-  background-color: #3148a5;
+  .nuevo-cliente-card {
+    padding: 25px;
+  }
+
+  .nuevo-cliente-title {
+    font-size: 38px;
+  }
+
+  .field-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .web-buttons {
+    flex-direction: column;
+  }
+
+  .web-buttons button {
+    width: 100%;
+  }
+
 }

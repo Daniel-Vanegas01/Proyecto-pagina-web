@@ -1,51 +1,164 @@
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
 .ver-cliente-container {
+  min-height: 100vh;
+
+  padding: 40px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff 0%,
+      #dbe4ff 50%,
+      #f8f9ff 100%
+    );
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
   display: flex;
   justify-content: center;
-  padding: 40px;
-  background-color: #f5f5f5;
-  min-height: 100vh;
+  align-items: flex-start;
 }
 
+/* =========================
+   CARD PRINCIPAL
+========================= */
 .ver-cliente-card {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  width: 900px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 1400px;
+
+  background: rgba(255,255,255,0.9);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 35px;
+
+  padding: 40px;
+
+  box-shadow:
+    0 20px 50px rgba(63, 92, 207, 0.12);
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: 40px;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
 }
 
-.header h1 {
+/* =========================
+   HEADER LEFT
+========================= */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-left h1 {
+  margin: 0;
+
+  font-size: 48px;
+
+  color: #2f4fc7;
+
+  font-weight: 800;
+}
+
+/* =========================
+   BOTÓN REGRESAR
+========================= */
+.back-button {
+  background: white;
+
+  border: 2px solid #3f5ccf;
+
   color: #3f5ccf;
+
+  padding: 12px 20px;
+
+  border-radius: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
 }
 
+.back-button:hover {
+  background: #3f5ccf;
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   BOTONES HEADER
+========================= */
 .header-buttons {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+
+  flex-wrap: wrap;
 }
 
 .header-buttons button {
-  background: #3f5ccf;
+  background:
+    linear-gradient(
+      135deg,
+      #3f5ccf,
+      #5a77ea
+    );
+
   color: white;
+
   border: none;
-  padding: 8px 15px;
-  border-radius: 15px;
+
+  padding: 12px 22px;
+
+  border-radius: 16px;
+
+  font-weight: 700;
+
   cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 8px 20px rgba(63, 92, 207, 0.2);
 }
 
-/* CONTENT */
+.header-buttons button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 25px rgba(63, 92, 207, 0.3);
+}
+
+/* =========================
+   CONTENIDO
+========================= */
 .content {
   display: flex;
+
   gap: 30px;
-  margin-top: 20px;
+
+  align-items: flex-start;
 }
 
+/* =========================
+   COLUMNAS
+========================= */
 .left {
   flex: 2;
 }
@@ -54,65 +167,198 @@
   flex: 1;
 }
 
-/* SECCIONES */
+/* =========================
+   SECCIONES
+========================= */
 .section {
-  margin-bottom: 20px;
-  padding-top: 10px;
-  border-top: 2px solid #e0e0e0;
+  background: white;
+
+  border-radius: 25px;
+
+  padding: 25px;
+
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.05);
+
+  border: 1px solid rgba(63, 92, 207, 0.08);
 }
 
+/* =========================
+   TITULOS SECCIONES
+========================= */
 .section h3 {
-  color: #3f5ccf;
+  margin-top: 0;
+
+  margin-bottom: 20px;
+
+  color: #2f4fc7;
+
+  font-size: 24px;
+
+  font-weight: 800;
 }
 
-/* NEGOCIOS */
+/* =========================
+   TEXTO
+========================= */
+.section p {
+  margin: 10px 0;
+
+  color: #444;
+
+  line-height: 1.6;
+}
+
+/* =========================
+   BOTÓN PRINCIPAL
+========================= */
 .main-button {
-  background: #3f5ccf;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  cursor: pointer;
   width: 100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #3f5ccf,
+      #5a77ea
+    );
+
+  color: white;
+
+  border: none;
+
+  padding: 15px;
+
+  border-radius: 18px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  margin-bottom: 20px;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 10px 25px rgba(63, 92, 207, 0.2);
 }
 
+.main-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 30px rgba(63, 92, 207, 0.3);
+}
+
+/* =========================
+   TARJETAS NEGOCIOS
+========================= */
 .negocio-item {
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
-  border: 2px solid #3f5ccf;
-  border-radius: 15px;
-  padding: 10px;
-  margin-bottom: 10px;
+
+  gap: 15px;
+
+  padding: 18px;
+
+  border-radius: 20px;
+
+  margin-bottom: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8faff,
+      #eef2ff
+    );
+
+  border: 1px solid rgba(63, 92, 207, 0.12);
 }
 
+.negocio-item strong {
+  color: #2f4fc7;
+}
+
+.negocio-item p {
+  margin: 5px 0 0 0;
+
+  color: #666;
+}
+
+/* =========================
+   BOTÓN VER NEGOCIO
+========================= */
 .negocio-item button {
   background: #3f5ccf;
+
   color: white;
+
   border: none;
-  padding: 5px 10px;
-  border-radius: 10px;
+
+  padding: 10px 18px;
+
+  border-radius: 12px;
+
   cursor: pointer;
+
+  font-weight: 700;
+
+  transition: all 0.25s ease;
 }
 
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.negocio-item button:hover {
+  background: #2f4fc7;
+
+  transform: scale(1.05);
 }
 
-.back-button {
-  background: transparent;
-  border: 2px solid #3f5ccf;
-  color: #3f5ccf;
-  padding: 5px 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1000px) {
+
+  .content {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
 }
 
-.back-button:hover {
-  background: #3f5ccf;
-  color: white;
+@media (max-width: 700px) {
+
+  .ver-cliente-container {
+    padding: 20px;
+  }
+
+  .ver-cliente-card {
+    padding: 25px;
+  }
+
+  .header-left h1 {
+    font-size: 34px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-buttons {
+    width: 100%;
+  }
+
+  .header-buttons button {
+    flex: 1;
+  }
+
 }
